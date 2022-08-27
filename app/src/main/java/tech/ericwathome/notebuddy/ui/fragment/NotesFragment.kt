@@ -1,4 +1,8 @@
 package tech.ericwathome.notebuddy.ui.fragment
 
-class NotesFragment {
+import androidx.fragment.app.Fragment
+import dagger.hilt.android.AndroidEntryPoint
+
+@AndroidEntryPoint
+class NotesFragment : Fragment() {
 }
