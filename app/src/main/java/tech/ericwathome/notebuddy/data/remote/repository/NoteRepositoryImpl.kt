@@ -18,7 +18,7 @@ class NoteRepositoryImpl @Inject constructor(private val apiService: NoteBudyApi
         return apiService.addNote(noteDto)
     }
 
-    override suspend fun allNotes(page: Int): Flow<PagingData<Note>> {
+    override suspend fun allNotes(): Flow<PagingData<Note>> {
         val pagingConfig = PagingConfig(
             pageSize = PAGE_LOAD_SIZE,
             enablePlaceholders = false
@@ -34,8 +34,8 @@ class NoteRepositoryImpl @Inject constructor(private val apiService: NoteBudyApi
         return apiService.findNote(id)
     }
 
-    override suspend fun updateNote(id: Int): ResponseMessage {
-        return apiService.deleteNote(id)
+    override suspend fun updateNote(id: Int, noteDto: NoteDto): ResponseMessage {
+        return apiService.updateNote(id, noteDto)
     }
 
     override suspend fun deleteNote(id: Int): ResponseMessage {

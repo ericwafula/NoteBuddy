@@ -8,8 +8,8 @@ import tech.ericwathome.notebuddy.data.model.ResponseMessage
 
 interface NoteRepository {
     suspend fun addNote(noteDto: NoteDto): ResponseMessage
-    suspend fun allNotes(page: Int): Flow<PagingData<Note>>
+    suspend fun allNotes(): Flow<PagingData<Note>>
     suspend fun findNote(id: Int): Note
-    suspend fun updateNote(id: Int): ResponseMessage
+    suspend fun updateNote(id: Int, noteDto: NoteDto): ResponseMessage
     suspend fun deleteNote(id: Int): ResponseMessage
 }

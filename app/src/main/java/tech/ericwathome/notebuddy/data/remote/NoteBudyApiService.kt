@@ -25,7 +25,7 @@ interface NoteBudyApiService {
 
     @PATCH("notes/update")
     suspend fun updateNote(
-        @Query("id") id: Int
+        @Query("id") id: Int, @Body note: NoteDto
     ): ResponseMessage
 
     @DELETE("notes/delete")
