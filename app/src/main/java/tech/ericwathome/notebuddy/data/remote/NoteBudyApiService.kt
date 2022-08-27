@@ -1,12 +1,13 @@
 package tech.ericwathome.notebuddy.data.remote
 
 import retrofit2.http.*
+import tech.ericwathome.notebuddy.data.dto.NoteDto
 import tech.ericwathome.notebuddy.data.model.Note
 
 interface NoteBudyApiService {
     @POST("notes/new")
     suspend fun addNote(
-        @Body note: Note
+        @Body note: NoteDto
     )
 
     @GET("notes")
