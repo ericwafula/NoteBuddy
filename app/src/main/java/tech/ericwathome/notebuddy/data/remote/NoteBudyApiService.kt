@@ -3,12 +3,13 @@ package tech.ericwathome.notebuddy.data.remote
 import retrofit2.http.*
 import tech.ericwathome.notebuddy.data.dto.NoteDto
 import tech.ericwathome.notebuddy.data.model.Note
+import tech.ericwathome.notebuddy.data.model.ResponseMessage
 
 interface NoteBudyApiService {
     @POST("notes/new")
     suspend fun addNote(
         @Body note: NoteDto
-    )
+    ): ResponseMessage
 
     @GET("notes")
     suspend fun allNotes(
@@ -23,10 +24,10 @@ interface NoteBudyApiService {
     @PATCH("notes/update")
     suspend fun updateNote(
         @Query("id") id: Int
-    )
+    ): ResponseMessage
 
     @DELETE("notes/delete")
     suspend fun deleteNote(
         @Query("id") id: Int
-    )
+    ): ResponseMessage
 }
